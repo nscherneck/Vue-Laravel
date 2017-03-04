@@ -163,10 +163,14 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
 
+        Barryvdh\Cors\ServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+        
         //
 
         /*

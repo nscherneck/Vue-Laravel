@@ -17,7 +17,7 @@
 							type="password"
 							placeholder="Password">
 					</div>
-					<button class="btn btn-success pull-right">
+					<button @click="login" class="btn btn-success pull-right">
 					Login
 					</button>
 				</div>
@@ -27,7 +27,30 @@
 </template>
 
 <script>
-	
+	export default {
+		data() {
+			return {
+				email: '',
+				password: ''
+			}
+		},
+		methods: {
+			login() {
+				var data = {
+					client_id: 2,
+					client_secret: '9lhuTpOx5JMJFi2oid9RJ3pDDdR5qN6QQ32r5OrJ',
+					grant_type: 'password',
+					username: this.email,
+					password: this.password
+				}
+
+				this.$http.post("http://vuelaravel.app/oauth/token", data)
+					.then(response => {
+						console.log(response)
+					}) 
+			}
+		}
+	}
 </script>
 
 <style>
