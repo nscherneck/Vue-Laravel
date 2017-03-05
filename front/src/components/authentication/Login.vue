@@ -46,7 +46,9 @@
 
 				this.$http.post("http://vuelaravel.app/oauth/token", data)
 					.then(response => {
-						console.log(response)
+						this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now())
+						// redirect user to Feed page
+						this.$router.push('/feed')
 					}) 
 			}
 		}
