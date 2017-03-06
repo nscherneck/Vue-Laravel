@@ -44,7 +44,7 @@
 					password: this.password
 				}
 
-				this.$http.post("http://vuelaravel.app/oauth/token", data)
+				this.$http.post("oauth/token", data)
 					.then(response => {
 						this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now())
 						// redirect user to Feed page
